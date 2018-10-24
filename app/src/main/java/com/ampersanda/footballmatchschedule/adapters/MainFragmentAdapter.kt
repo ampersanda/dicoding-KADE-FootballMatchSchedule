@@ -6,14 +6,13 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.ampersanda.footballmatchschedule.fragments.LastMatchFragment
 import com.ampersanda.footballmatchschedule.fragments.NextMatchFragment
 
-class MainFragmentAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class MainFragmentAdapter(sections: Array<String>, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
-    private var fragmentList : MutableList<Fragment> = mutableListOf()
-    private var titleList : MutableList<String> = mutableListOf()
+    private var fragmentList: MutableList<Fragment> = mutableListOf()
+    private var titleList: MutableList<String> = mutableListOf()
 
     init {
-        titleList.add("LAST MATCH")
-        titleList.add("NEXT MATCH")
+        for (s in sections) titleList.add(s)
 
         fragmentList.add(LastMatchFragment())
         fragmentList.add(NextMatchFragment())
