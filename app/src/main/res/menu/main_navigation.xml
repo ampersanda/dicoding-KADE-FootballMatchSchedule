@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/main_navigation_last_match"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="@string/main_navigation_last_match"
+        />
+    <item android:id="@+id/main_navigation_next_match"
+        android:icon="@drawable/ic_event_black_24dp"
+        android:title="@string/main_navigation_next_match"
+        />
+    <item android:id="@+id/main_navigation_fav"
+        android:icon="@drawable/ic_stars_black_24dp"
+        android:title="@string/main_navigation_fav"
+        />
+</menu>

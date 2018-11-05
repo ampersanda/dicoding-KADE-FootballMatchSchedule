@@ -1,13 +1,13 @@
 package com.ampersanda.footballmatchschedule
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
-import com.ampersanda.footballmatchschedule.adapters.MainFragmentAdapter
-import com.google.android.material.tabs.TabLayout
+import com.ampersanda.footballmatchschedule.fragments.LastMatchFragment
+import com.ampersanda.footballmatchschedule.fragments.NextMatchFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,14 +15,32 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.elevation = 0f
 
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-        val viewPager = findViewById<ViewPager>(R.id.viewPager)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.main_bottom_nav)
 
-        val sections = resources.getStringArray(R.array.section_name)
+        bottomNav.setOnNavigationItemSelectedListener { it: MenuItem ->
+            when (it.itemId) {
+                R.id.main_navigation_last_match -> {
+                    supportActionBar?.title = getString(R.string.main_navigation_last_match)
+                    FragmentUtility.changeFragment(supportFragmentManager, LastMatchFragment())
+                    true
+                }
 
-        val fragmentAdapter = MainFragmentAdapter(sections, supportFragmentManager)
-        viewPager.adapter = fragmentAdapter
+                R.id.main_navigation_next_match -> {
+                    supportActionBar?.title = getString(R.string.main_navigation_next_match)
+                    FragmentUtility.changeFragment(supportFragmentManager, NextMatchFragment())
+                    true
+                }
 
-        tabLayout.setupWithViewPager(viewPager)
+                R.id.main_navigation_fav -> {
+                    supportActionBar?.title = getString(R.string.main_navigation_fav)
+                    FragmentUtility.changeFragment(supportFragmentManager, LastMatchFragment())
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        bottomNav.selectedItemId = R.id.main_navigation_next_match
     }
 }
