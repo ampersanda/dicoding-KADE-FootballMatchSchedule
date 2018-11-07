@@ -26,8 +26,8 @@ class MatchAdapter(private val listOfLastMatch: MutableList<Event>, private var 
             nameHome.text = event.strHomeTeam
             nameAway.text = event.strAwayTeam
 
-            scoreHome.text = event.intHomeScore
-            scoreAway.text = event.intAwayScore
+            scoreHome.text = APIConfiguration.getBlankStringWhenNull(event.intHomeScore)
+            scoreAway.text = APIConfiguration.getBlankStringWhenNull(event.intAwayScore)
 
             itemView.setOnClickListener { _ ->
                 clickListener(event)

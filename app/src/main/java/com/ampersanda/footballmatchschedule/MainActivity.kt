@@ -3,6 +3,7 @@ package com.ampersanda.footballmatchschedule
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.ampersanda.footballmatchschedule.fragments.FavouriteMatchFragment
 import com.ampersanda.footballmatchschedule.fragments.LastMatchFragment
 import com.ampersanda.footballmatchschedule.fragments.NextMatchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.main_navigation_fav -> {
                     supportActionBar?.title = getString(R.string.main_navigation_fav)
-                    FragmentUtility.changeFragment(supportFragmentManager, LastMatchFragment())
+                    FragmentUtility.changeFragment(supportFragmentManager, FavouriteMatchFragment())
                     true
                 }
 

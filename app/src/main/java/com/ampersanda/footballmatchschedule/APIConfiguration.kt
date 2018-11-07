@@ -16,6 +16,10 @@ object APIConfiguration {
         return "${BuildConfig.BASE_URL}/api/v1/json/${BuildConfig.TSDB_API_KEY}/lookupteam.php?id=$teamId"
     }
 
+    fun getEventInformationURL(eventId: String?): String {
+        return "${BuildConfig.BASE_URL}/api/v1/json/${BuildConfig.TSDB_API_KEY}/lookupevent.php?id=$eventId"
+    }
+
     fun getNextFifteenMatchURL(leagueId: String?): String {
         return "${BuildConfig.BASE_URL}/api/v1/json/${BuildConfig.TSDB_API_KEY}/eventsnextleague.php?id=$leagueId"
     }
@@ -36,5 +40,15 @@ object APIConfiguration {
     fun replaceSemicolonToNewLine(string: String?): String {
         @Suppress("RegExpRedundantEscape")
         return string?.replace(Regex("""\;\s*"""), "\n") ?: ' '.toString()
+    }
+
+    fun getBlankStringWhenNull(s : String?): String {
+        if (s == "null"){
+            return ""
+        } else if (s != null){
+            return s
+        }
+
+        return ""
     }
 }

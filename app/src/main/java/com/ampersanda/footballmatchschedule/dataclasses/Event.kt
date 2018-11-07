@@ -71,4 +71,41 @@ data class Event(
 
         @SerializedName("strAwayLineupSubstitutes")
         var strAwayLineupSubstitutes: String? = null
-) : Parcelable
+) : Parcelable {
+    companion object {
+        const val TABLE_NAME: String = "FAVOURITE_EVENTS"
+        const val FAVOURITE_ID: String = "FAVOURITE_ID"
+        const val FAVOURITE_EVENT_ID: String = "FAVOURITE_EVENT_ID"
+        const val FAVOURITE_EVENT_DATE: String = "FAVOURITE_EVENT_DATE"
+
+        const val FAVOURITE_HOME_ID: String = "FAVOURITE_HOME_ID"
+        const val FAVOURITE_AWAY_ID: String = "FAVOURITE_AWAY_ID"
+
+        const val FAVOURITE_HOME_NAME: String = "FAVOURITE_HOME_NAME"
+        const val FAVOURITE_AWAY_NAME: String = "FAVOURITE_AWAY_NAME"
+
+        const val FAVOURITE_HOME_SCORE: String = "FAVOURITE_HOME_SCORE"
+        const val FAVOURITE_AWAY_SCORE: String = "FAVOURITE_AWAY_SCORE"
+
+        const val FAVOURITE_HOME_DETAILS: String = "FAVOURITE_HOME_DETAILS"
+        const val FAVOURITE_AWAY_DETAILS: String = "FAVOURITE_AWAY_DETAILS"
+
+        const val FAVOURITE_HOME_SHOTS: String = "FAVOURITE_HOME_SHOTS"
+        const val FAVOURITE_AWAY_SHOTS: String = "FAVOURITE_AWAY_SHOTS"
+
+        const val FAVOURITE_HOME_LINEUP_GOAL_KEEPER: String = "FAVOURITE_HOME_LINEUP_GOAL_KEEPER"
+        const val FAVOURITE_AWAY_LINEUP_GOAL_KEEPER: String = "FAVOURITE_AWAY_LINEUP_GOAL_KEEPER"
+
+        const val FAVOURITE_HOME_LINEUP_DEFENSE: String = "FAVOURITE_HOME_LINEUP_DEFENSE"
+        const val FAVOURITE_AWAY_LINEUP_DEFENSE: String = "FAVOURITE_AWAY_LINEUP_DEFENSE"
+
+        const val FAVOURITE_HOME_LINEUP_MIDFIELD: String = "FAVOURITE_HOME_LINEUP_MIDFIELD"
+        const val FAVOURITE_AWAY_LINEUP_MIDFIELD: String = "FAVOURITE_AWAY_LINEUP_MIDFIELD"
+
+        const val FAVOURITE_HOME_LINEUP_FORWARD: String = "FAVOURITE_HOME_LINEUP_FORWARD"
+        const val FAVOURITE_AWAY_LINEUP_FORWARD: String = "FAVOURITE_AWAY_LINEUP_FORWARD"
+
+        const val FAVOURITE_HOME_LINEUP_SUBSTITUTES: String = "FAVOURITE_HOME_LINEUP_SUBSTITUTES"
+        const val FAVOURITE_AWAY_LINEUP_SUBSTITUTES: String = "FAVOURITE_AWAY_LINEUP_SUBSTITUTES"
+    }
+}

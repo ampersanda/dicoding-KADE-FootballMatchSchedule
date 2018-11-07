@@ -59,6 +59,14 @@
                         android:gravity="center"
                         android:text="@string/dummy_home_team" />
 
+                    <TextView
+                        android:id="@+id/detail_match_home_formation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:text="@string/dummy_home_team" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -116,6 +124,14 @@
                         android:gravity="center"
                         android:text="@string/dummy_away_team"
                         android:maxHeight="64dp"/>
+
+                    <TextView
+                        android:id="@+id/detail_match_away_formation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:text="@string/dummy_home_team" />
 
                 </LinearLayout>
 
