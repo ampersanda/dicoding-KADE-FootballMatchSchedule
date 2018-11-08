@@ -15,7 +15,7 @@ class LocalDatabase(context: Context) : ManagedSQLiteOpenHelper(context, "Favour
             if (instance == null) {
                 instance = LocalDatabase(context.applicationContext)
             }
-            return instance!!
+            return instance as LocalDatabase
         }
     }
 

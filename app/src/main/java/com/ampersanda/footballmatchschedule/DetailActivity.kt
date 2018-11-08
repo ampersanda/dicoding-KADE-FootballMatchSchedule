@@ -47,7 +47,7 @@ class DetailActivity : AppCompatActivity() {
         database = LocalDatabase(applicationContext)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Match Details"
+        supportActionBar?.title = getString(R.string.match_details)
 
         event = intent.extras?.getParcelable(APIConfiguration.eventKey) as Event
 

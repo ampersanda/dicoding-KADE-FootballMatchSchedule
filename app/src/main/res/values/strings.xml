@@ -35,5 +35,6 @@
     <string name="ask_delete_favourite">Delete from favourites?</string>
     <string name="ask_sure_delete_favourite">Are you sure to remove this from favourites?</string>
     <string name="no_data">No Data</string>
+    <string name="match_details">Match Details</string>
 
 </resources>
