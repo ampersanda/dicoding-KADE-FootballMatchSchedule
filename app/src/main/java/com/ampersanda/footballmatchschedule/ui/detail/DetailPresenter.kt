@@ -31,6 +31,7 @@ class DetailPresenter(
             select(Event.TABLE_NAME, Event.FAVOURITE_EVENT_ID)
                     .whereArgs("(${Event.FAVOURITE_EVENT_ID} = ${event.idEvent})").exec {
                         parseList(StringParser).forEach {
+                            onLoop()
                         }
                     }
         }
