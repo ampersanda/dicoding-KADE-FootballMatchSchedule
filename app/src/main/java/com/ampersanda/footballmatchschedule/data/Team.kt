@@ -1,4 +1,4 @@
-package com.ampersanda.footballmatchschedule.dataclasses
+package com.ampersanda.footballmatchschedule.data
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

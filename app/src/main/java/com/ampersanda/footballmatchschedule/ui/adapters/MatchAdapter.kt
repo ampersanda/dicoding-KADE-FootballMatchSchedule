@@ -1,4 +1,4 @@
-package com.ampersanda.footballmatchschedule.adapters
+package com.ampersanda.footballmatchschedule.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ampersanda.footballmatchschedule.APIConfiguration
 import com.ampersanda.footballmatchschedule.R
-import com.ampersanda.footballmatchschedule.dataclasses.Event
+import com.ampersanda.footballmatchschedule.data.Event
 
 class MatchAdapter(private val listOfLastMatch: MutableList<Event>, private var clickListener: (Event) -> Unit) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -29,7 +29,7 @@ class MatchAdapter(private val listOfLastMatch: MutableList<Event>, private var 
             scoreHome.text = APIConfiguration.getBlankStringWhenNull(event.intHomeScore)
             scoreAway.text = APIConfiguration.getBlankStringWhenNull(event.intAwayScore)
 
-            itemView.setOnClickListener { _ ->
+            itemView.setOnClickListener {
                 clickListener(event)
             }
         }

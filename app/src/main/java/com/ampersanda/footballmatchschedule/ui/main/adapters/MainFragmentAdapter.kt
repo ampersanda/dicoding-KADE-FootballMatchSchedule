@@ -1,10 +1,10 @@
-package com.ampersanda.footballmatchschedule.adapters
+package com.ampersanda.footballmatchschedule.ui.main.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.ampersanda.footballmatchschedule.fragments.LastMatchFragment
-import com.ampersanda.footballmatchschedule.fragments.NextMatchFragment
+import com.ampersanda.footballmatchschedule.ui.flastmatch.LastMatchFragment
+import com.ampersanda.footballmatchschedule.ui.fnextmatch.NextMatchFragment
 
 class MainFragmentAdapter(sections: Array<String>, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 

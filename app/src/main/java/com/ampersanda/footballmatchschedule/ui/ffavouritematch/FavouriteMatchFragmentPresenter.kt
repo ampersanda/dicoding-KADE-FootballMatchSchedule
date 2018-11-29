@@ -1,64 +1,17 @@
-package com.ampersanda.footballmatchschedule.fragments
+package com.ampersanda.footballmatchschedule.ui.ffavouritematch
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.ampersanda.footballmatchschedule.APIConfiguration
-import com.ampersanda.footballmatchschedule.DetailActivity
 import com.ampersanda.footballmatchschedule.LocalDatabase
-import com.ampersanda.footballmatchschedule.R
-import com.ampersanda.footballmatchschedule.adapters.MatchAdapter
-import com.ampersanda.footballmatchschedule.dataclasses.Event
+import com.ampersanda.footballmatchschedule.data.Event
 import org.jetbrains.anko.db.MapRowParser
 import org.jetbrains.anko.db.parseList
 import org.jetbrains.anko.db.select
 
-class FavouriteMatchFragment : Fragment() {
+class FavouriteMatchFragmentPresenter {
 
-    private lateinit var layoutView: View
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var progressLoading: ProgressBar
-    private lateinit var labelNoData: TextView
-    var eventList : MutableList<Event> = mutableListOf()
-
-    private fun setLoading() {
-        progressLoading.visibility = View.VISIBLE
-        recyclerView.visibility = View.INVISIBLE
-        labelNoData.visibility = View.INVISIBLE
-    }
-
-    private fun hideLoading() {
-        progressLoading.visibility = View.GONE
-        recyclerView.visibility = View.VISIBLE
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        layoutView = inflater.inflate(R.layout.fragment_favourite_match, container, false)
-
-        recyclerView = layoutView.findViewById(R.id.frag_recycler_favourite_match)
-        progressLoading = layoutView.findViewById(R.id.frag_loading_favourite_match)
-        labelNoData = layoutView.findViewById(R.id.frag_label_no_data)
-
-        recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-
-        return layoutView
-    }
-
-    override fun onStart() {
-        super.onStart()
+    fun selectAllFromLocalDB(database: LocalDatabase, eventList: MutableList<Event>, onDataAvailable: (isDataAvailable : Boolean, eventList : MutableList<Event>) -> Unit ){
 
         eventList.clear()
-
-        setLoading()
-
-        val database = LocalDatabase(context!!)
 
         database.use {
             select(Event.TABLE_NAME,
@@ -106,15 +59,6 @@ class FavouriteMatchFragment : Fragment() {
             }
         }
 
-        hideLoading()
-
-        if (eventList.size > 0){
-            recyclerView.adapter = MatchAdapter(eventList) { event ->
-                startActivity(context?.let { DetailActivity.newIntent(it, event) })
-            }
-        } else {
-            recyclerView.visibility = View.INVISIBLE
-            labelNoData.visibility = View.VISIBLE
-        }
+        onDataAvailable(eventList.size > 0, eventList)
     }
 }

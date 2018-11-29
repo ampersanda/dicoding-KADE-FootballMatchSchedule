@@ -2,7 +2,7 @@ package com.ampersanda.footballmatchschedule
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.ampersanda.footballmatchschedule.dataclasses.Event
+import com.ampersanda.footballmatchschedule.data.Event
 import org.jetbrains.anko.db.*
 
 class LocalDatabase(context: Context) : ManagedSQLiteOpenHelper(context, "FavouriteMatches.db", null, 1) {

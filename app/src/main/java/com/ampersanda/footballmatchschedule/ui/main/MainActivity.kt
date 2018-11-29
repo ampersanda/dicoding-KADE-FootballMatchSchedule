@@ -1,11 +1,13 @@
-package com.ampersanda.footballmatchschedule
+package com.ampersanda.footballmatchschedule.ui.main
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.ampersanda.footballmatchschedule.fragments.FavouriteMatchFragment
-import com.ampersanda.footballmatchschedule.fragments.LastMatchFragment
-import com.ampersanda.footballmatchschedule.fragments.NextMatchFragment
+import com.ampersanda.footballmatchschedule.FragmentUtility
+import com.ampersanda.footballmatchschedule.R
+import com.ampersanda.footballmatchschedule.ui.ffavouritematch.FavouriteMatchFragment
+import com.ampersanda.footballmatchschedule.ui.flastmatch.LastMatchFragment
+import com.ampersanda.footballmatchschedule.ui.fnextmatch.NextMatchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
